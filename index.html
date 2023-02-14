@@ -7,7 +7,21 @@
     <title>录客派余网-欢迎你</title>
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
     <script>Pi.init({ version: "2.0" })</script>
-     <script>
+    
+  <style>
+    div {
+        text-align: center;
+    }
+    div {
+        margin: 0 auto;
+    }
+    div {
+        background-image: url(./img/1.PNG);
+    }
+  </style>
+</head>
+<body>
+    <div> <script>
          // Authenticate the user, and get permission to request payments from them:
 const scopes = ['payments'];
 
@@ -35,20 +49,6 @@ Pi.createPayment({
     onError: function(error, payment) { /* ... */ },
   });
      </script>
-  <style>
-    div {
-        text-align: center;
-    }
-    div {
-        margin: 0 auto;
-    }
-    div {
-        background-image: url(./img/1.PNG);
-    }
-  </style>
-</head>
-<body>
-    <div>
         <h1>欢迎来到录客派余</h1>
         <hr>
         <H2>我们将竭诚为您提供专业的基础知识解答</H2>
