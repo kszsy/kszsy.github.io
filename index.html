@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href = "img/py-logo.ico"  />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>录客派余网-欢迎你</title>
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-    <script> Pi.init({ version: "2.0" });</script>
-    <title>录客派余</title>
-    <style>
-        .container {
-            width: 60%;
-            margin: 10% auto 0;
-            background-color: #f0f0f0;
-            padding: 2% 5%;
-            border-radius: 10px
-        }
+    <script>Pi.init({ version: "2.0" })</script>
+     <script>
+         // Authenticate the user, and get permission to request payments from them:
+const scopes = ['payments'];
 
-        ul {
-            padding-left: 20px;
-        }
+// Read more about this callback in the SDK reference:
+function onIncompletePaymentFound(payment) { /* ... */ };
 
-            ul li {
-                line-height: 2.3
-            }
+Pi.authenticate(scopes, onIncompletePaymentFound).then(function(auth) {
+  console.log(`Hi there! You're ready to make payments!`);
+}).catch(function(error) {
+  console.error(error);
+});
 
-        a {
-            color: #20a53a
-        }
-    </style>
-  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-  <script>Pi.init({ version: "2.0" })</script>
+Pi.createPayment({
+    // Amount of π to be paid:
+    amount: 3.14,
+    // An explanation of the payment - will be shown to the user:
+    memo: "...", // e.g: "Digital kitten #1234",
+    // An arbitrary developer-provided metadata object - for your own usage:
+    metadata: { /* ... */ }, // e.g: { kittenId: 1234 }
+  }, {
+    // Callbacks you need to implement - read more about those in the detailed docs linked below:
+    onReadyForServerApproval: function(paymentId) { /* ... */ },
+    onReadyForServerCompletion: function(paymentId, txid) { /* ... */ },
+    onCancel: function(paymentId) { /* ... */ },
+    onError: function(error, payment) { /* ... */ },
+  });
+     </script>
+  <style>
+    div {
+        text-align: center;
+    }
+    div {
+        margin: 0 auto;
+    }
+    div {
+        background-image: url(/1.PNG);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>恭喜, 站点创建成功！</h1>
-        <h3>录客派余欢迎您</h3>
-        <p style="test-align: center;">
-                  <img src="img/1.png" alt=""> </p>
+    <div>
+        <h1>欢迎来到录客派余</h1>
+        <hr>
+        <H2>我们将竭诚为您提供专业的基础知识解答</H2>
+        <p>这里可以是您了解PI NETWORK 的开始</p>
+        <br>
+
     </div>
+    
 </body>
 </html>
